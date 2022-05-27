@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+b{
+    font-weight: normal;
+}
+
+b.l{
+    color: orange;
+}
+
+b.r{
+    color: blue;
+}
+
+.treasury{
+    background-color: rgb(103, 103, 103);
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 5px 3px 5px rgba(0,0,0,0.16);
+    position: relative;
+}
+
+.arrow{
+    position: absolute;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    top: 25%;
+}
+
+.l:hover{
+    animation-name: roll_l;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.r:hover{
+    animation-name: roll_r;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes roll_l{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes roll_r{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+.arrow.l{
+    left: 25%;
+    background: url(icon/arrow-rotate-left-solid.svg) no-repeat;
+}
+
+.arrow.r{
+    right: 25%;
+    background: url(icon/arrow-rotate-right-solid.svg) no-repeat;
+}
+
+.math{
+    margin-top: 3rem;
+    font-size: 1.5rem;
+    width: 270px;
+    height: 2.5rem;
+    background-color: #fff;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+}
+
+.math span:not(:last-child)::after{
+    content: "-";
+}
+
+.roll{
+    background-color: #fff;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+}
+
+.scaleNumber{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: relative;
+}
+
+.scaleNumber span{
+    position: absolute;
+    pointer-events: none;
+    user-select: none;
+}
+
+.math span.ERROR{
+    color: red;
+}
+
+.math span.CLEAR{
+    color: green;
+}
+
+.scaleNumber span:nth-child(1){
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scaleNumber span:nth-child(2){
+    top: 25%;
+    right: 20%;
+    transform: translate(50%,-50%);
+}
+
+.scaleNumber span:nth-child(3){
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+}
+
+.scaleNumber span:nth-child(4){
+    bottom: 25%;
+    right: 20%;
+    transform: translate(50%,50%);
+}
+
+.scaleNumber span:nth-child(5){
+    bottom: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.scaleNumber span:nth-child(6){
+    bottom: 25%;
+    left: 20%;
+    transform: translate(-50%,50%);
+}
+
+.scaleNumber span:nth-child(7){
+    top: 50%;
+    left: 0.5rem;
+    transform: translateY(-50%);
+}
+
+.scaleNumber span:nth-child(8){
+    top: 25%;
+    left: 20%;
+    transform: translate(-50%,-50%);
+}
+
+.rollMain{
+    background-color: rgb(66, 66, 66);
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    box-shadow: 0 5px 5px rgba(0,0,0,0.16);
+    transition: transform 0.5s ease-out;
+}
+
+.rollMain::before{
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 17.3px 10px;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+.btnBox{
+    margin-bottom: 2rem;
+    user-select: none;
+}
+
+.btnBox button{
+    background-color: rgb(66, 66, 66);
+    border: #fff 1px solid;
+    padding: 1rem 2rem;
+    border-radius: 1.5rem;
+    color: red;
+    font-size: 16px;
+    box-shadow: 0 10px 5px rgba(0,0,0,0.16);
+    margin: 0 1rem;
+    transition: color 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.btnBox button:active{
+    color: rgb(66, 66, 66);
+    transform: scale(0.9);
+}

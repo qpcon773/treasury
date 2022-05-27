@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="treasury.css">
+    <title>Treasury</title>
+</head>
+<body>
+    <main>
+        <div class="treasury">
+            <a href="javascript:;" class="arrow r" onclick="rollEvent('r')"></a>
+            <a href="javascript:;" class="arrow l" onclick="rollEvent('l')"></a>
+            <div class="math">
+                <span>0</span>
+                <span>0</span>
+                <span>0</span>
+                <span>0</span>
+                <span>0</span>
+            </div>
+            <div class="roll">
+                <div class="scaleNumber">
+                    <span>0</span>
+                    <span>45</span>
+                    <span>90</span>
+                    <span>135</span>
+                    <span>180</span>
+                    <span>225</span>
+                    <span>270</span>
+                    <span>315</span>
+                </div>
+                <div class="rollMain"></div>
+            </div>
+            <div class="btnBox">
+                <button onclick="cl()">clear</button>
+                <button onclick="op()">open</button>
+                <button onclick="inp()">input</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+<script src="treasury.js"></script>
