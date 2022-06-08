@@ -2,7 +2,9 @@ let deg = 0
 let count = 0
 let place = "normal"
 let password = []
-let text = ["ERROR","CLEAR"]
+let realPassWord = []
+let text = ["SETUP","CLEAR","ERROR"]
+let setup = true
 
 const rollEvent = e =>{
     if(e == "l"){
@@ -14,6 +16,7 @@ const rollEvent = e =>{
         count == 7 ? count = 0 : count ++
         place = "r"
     }
+
     document.querySelector(".rollMain").style["transform"]=`translate(-50%,-50%) rotate(${deg}deg)`
 }
 
@@ -22,9 +25,11 @@ const cl = () =>{
     count = 0
     place = "normal"
     password = []
+
     document.querySelectorAll(".math > span").forEach(e =>{
-        e.innerHTML = "<span>0</span>"
+        e.innerText = "0"
     })
+
     document.querySelector(".rollMain").style["transform"] = "translate(-50%,-50%) rotate(0deg)"
 }
 
@@ -34,6 +39,7 @@ const inp = ()=>{
     }
 
     let target = []
+
     switch(count){
         case  0:
             target.push(0)
@@ -71,7 +77,32 @@ const innerPassword = (e,i) =>{
 }
 
 const op = () =>{
-    document.querySelectorAll(".math > span").forEach((e,i) =>{
-        e.innerHTML = `<span class="${text[0]}">${text[0][i]}</span>`
-    })
+    let target = document.querySelectorAll(".math > span > b")
+    let situation
+
+    setup ? situation = 0 : null
+    
+    if(target.length >= 5){
+        if(situation == 0){
+            realPassWord = password
+            setup = false
+        }else if(JSON.stringify(password) === JSON.stringify(realPassWord)){
+            situation = 1
+        }else{
+            situation = 2
+        }
+
+        target.forEach((e,i) =>{
+            e.innerText = text[situation][i]
+        })
+
+        document.querySelector(".math").classList.add(text[situation].toLowerCase())
+        document.querySelector("body").classList.add("stopEvent")
+
+        setTimeout(()=>{
+            cl()
+            document.querySelector(".math").classList.remove(text[situation].toLowerCase())
+            document.querySelector("body").classList.remove("stopEvent")
+        },1000)
+    }
 }

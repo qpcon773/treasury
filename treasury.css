@@ -5,6 +5,11 @@
     font-family: 'Noto Sans TC', sans-serif;
 }
 
+.stopEvent *{
+    pointer-events: none !important;
+    user-select: none !important;
+}
+
 b{
     font-weight: normal;
 }
@@ -117,12 +122,28 @@ b.r{
     user-select: none;
 }
 
-.math span.ERROR{
+.math.error{
     color: red;
 }
 
-.math span.CLEAR{
+.math.error span b{
+    color: red;
+}
+
+.math.clear{
     color: green;
+}
+
+.math.clear span b{
+    color: green;
+}
+
+.math.setup{
+    color: mediumpurple;
+}
+
+.math.setup span b{
+    color: mediumpurple;
 }
 
 .scaleNumber span:nth-child(1){
