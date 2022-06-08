@@ -23,6 +23,11 @@
     box-shadow: 5px 3px 5px rgba(0,0,0,0.16);
     position: relative;
 
+    @media screen and (max-width: 500px) {
+        width: 320px;
+        height: 320px;
+    }
+
     .arrow{
         position: absolute;
         display: inline-block;
@@ -86,6 +91,10 @@
         justify-content: center;
         user-select: none;
 
+        @media screen and (max-width: 500px) {
+            margin-top: 1rem;
+        }
+
         &.setup{
             color: mediumpurple;
 
@@ -139,12 +148,22 @@
         height: 200px;
         border-radius: 50%;
         position: relative;
+
+        @media screen and (max-width: 500px) {
+            width: 150px;
+            height: 150px;
+            transform: translateY(1rem);
+        }
     
         .scaleNumber{
             width: 100%;
             height: 100%;
             border-radius: 50%;
             position: relative;
+
+            @media screen and (max-width: 500px) {
+                font-size: 14px;
+            }
 
             span{
                 position: absolute;
@@ -212,6 +231,11 @@
             border-radius: 50%;
             box-shadow: 0 5px 5px rgba(0,0,0,0.16);
             transition: transform 0.5s ease-out;
+
+            @media screen and (max-width: 500px) {
+                width: 75px;
+                height: 75px;
+            }
         
             &::before{
                 content: "";
@@ -231,6 +255,10 @@
     .btnBox{
         margin-bottom: 2rem;
         user-select: none;
+
+        @media screen and (max-width: 500px) {
+            margin-bottom: 1rem;
+        }
     
         button{
             background-color: rgb(66, 66, 66);
@@ -242,6 +270,11 @@
             box-shadow: 0 10px 5px rgba(0,0,0,0.16);
             margin: 0 1rem;
             transition: color 0.3s ease-out, transform 0.3s ease-out;
+
+            @media screen and (max-width: 500px) {
+                margin: 0 0.5rem;
+                padding: 0.5rem 1rem;
+            }
     
             &:active{
                 color: rgb(66, 66, 66);

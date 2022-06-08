@@ -35,6 +35,12 @@
           box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.16);
   position: relative;
 }
+@media screen and (max-width: 500px) {
+  .treasury {
+    width: 320px;
+    height: 320px;
+  }
+}
 .treasury .arrow {
   position: absolute;
   display: inline-block;
@@ -131,6 +137,11 @@
       -ms-user-select: none;
           user-select: none;
 }
+@media screen and (max-width: 500px) {
+  .treasury .math {
+    margin-top: 1rem;
+  }
+}
 .treasury .math.setup {
   color: mediumpurple;
 }
@@ -168,11 +179,24 @@
   border-radius: 50%;
   position: relative;
 }
+@media screen and (max-width: 500px) {
+  .treasury .roll {
+    width: 150px;
+    height: 150px;
+    -webkit-transform: translateY(1rem);
+            transform: translateY(1rem);
+  }
+}
 .treasury .roll .scaleNumber {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   position: relative;
+}
+@media screen and (max-width: 500px) {
+  .treasury .roll .scaleNumber {
+    font-size: 14px;
+  }
 }
 .treasury .roll .scaleNumber span {
   position: absolute;
@@ -247,6 +271,12 @@
   transition: transform 0.5s ease-out;
   transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
 }
+@media screen and (max-width: 500px) {
+  .treasury .roll .rollMain {
+    width: 75px;
+    height: 75px;
+  }
+}
 .treasury .roll .rollMain::before {
   content: "";
   position: absolute;
@@ -267,6 +297,11 @@
       -ms-user-select: none;
           user-select: none;
 }
+@media screen and (max-width: 500px) {
+  .treasury .btnBox {
+    margin-bottom: 1rem;
+  }
+}
 .treasury .btnBox button {
   background-color: rgb(66, 66, 66);
   border: #fff 1px solid;
@@ -281,6 +316,12 @@
   transition: color 0.3s ease-out, -webkit-transform 0.3s ease-out;
   transition: color 0.3s ease-out, transform 0.3s ease-out;
   transition: color 0.3s ease-out, transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+@media screen and (max-width: 500px) {
+  .treasury .btnBox button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+  }
 }
 .treasury .btnBox button:active {
   color: rgb(66, 66, 66);
