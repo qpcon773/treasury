@@ -1,243 +1,289 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Noto Sans TC', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
 }
 
-.stopEvent *{
-    pointer-events: none !important;
-    user-select: none !important;
+.stopEvent * {
+  pointer-events: none !important;
+  -webkit-user-select: none !important;
+     -moz-user-select: none !important;
+      -ms-user-select: none !important;
+          user-select: none !important;
 }
 
-b{
-    font-weight: normal;
+.treasury {
+  background-color: rgb(103, 103, 103);
+  width: 500px;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.16);
+          box-shadow: 5px 3px 5px rgba(0, 0, 0, 0.16);
+  position: relative;
 }
-
-b.l{
-    color: orange;
+.treasury .arrow {
+  position: absolute;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  top: 25%;
 }
-
-b.r{
-    color: blue;
+@-webkit-keyframes roll_l {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
 }
-
-.treasury{
-    background-color: rgb(103, 103, 103);
-    width: 500px;
-    height: 500px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    box-shadow: 5px 3px 5px rgba(0,0,0,0.16);
-    position: relative;
+@keyframes roll_l {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+  }
 }
-
-.arrow{
-    position: absolute;
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    top: 25%;
+@-webkit-keyframes roll_r {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
-
-.l:hover{
-    animation-name: roll_l;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+@keyframes roll_r {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
 }
-
-.r:hover{
-    animation-name: roll_r;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+.treasury .arrow.l {
+  left: 25%;
+  background: url(icon/arrow-rotate-left-solid.svg) no-repeat;
 }
-
-@keyframes roll_l{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(-360deg);
-    }
+.treasury .arrow.l:hover {
+  -webkit-animation-name: "roll_l";
+          animation-name: "roll_l";
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
-
-@keyframes roll_r{
-    from{
-        transform: rotate(0deg);
-    }
-    to{
-        transform: rotate(360deg);
-    }
+.treasury .arrow.r {
+  right: 25%;
+  background: url(icon/arrow-rotate-right-solid.svg) no-repeat;
 }
-
-.arrow.l{
-    left: 25%;
-    background: url(icon/arrow-rotate-left-solid.svg) no-repeat;
+.treasury .arrow.r:hover {
+  -webkit-animation-name: "roll_r";
+          animation-name: "roll_r";
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
 }
-
-.arrow.r{
-    right: 25%;
-    background: url(icon/arrow-rotate-right-solid.svg) no-repeat;
+.treasury .math {
+  margin-top: 3rem;
+  font-size: 1.5rem;
+  width: 270px;
+  height: 2.5rem;
+  background-color: #fff;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-
-.math{
-    margin-top: 3rem;
-    font-size: 1.5rem;
-    width: 270px;
-    height: 2.5rem;
-    background-color: #fff;
-    border-radius: 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
+.treasury .math.setup {
+  color: mediumpurple;
 }
-
-.math span:not(:last-child)::after{
-    content: "-";
+.treasury .math.setup span b {
+  color: mediumpurple;
 }
-
-.roll{
-    background-color: #fff;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    position: relative;
+.treasury .math.error {
+  color: red;
 }
-
-.scaleNumber{
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    position: relative;
+.treasury .math.error span b {
+  color: red;
 }
-
-.scaleNumber span{
-    position: absolute;
-    pointer-events: none;
-    user-select: none;
+.treasury .math.clear {
+  color: green;
 }
-
-.math.error{
-    color: red;
+.treasury .math.clear span b {
+  color: green;
 }
-
-.math.error span b{
-    color: red;
+.treasury .math span:not(:last-child)::after {
+  content: "-";
 }
-
-.math.clear{
-    color: green;
+.treasury .math b {
+  font-weight: normal;
 }
-
-.math.clear span b{
-    color: green;
+.treasury .math b.l {
+  color: orange;
 }
-
-.math.setup{
-    color: mediumpurple;
+.treasury .math b.r {
+  color: blue;
 }
-
-.math.setup span b{
-    color: mediumpurple;
+.treasury .roll {
+  background-color: #fff;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
 }
-
-.scaleNumber span:nth-child(1){
-    top: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+.treasury .roll .scaleNumber {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
 }
-
-.scaleNumber span:nth-child(2){
-    top: 25%;
-    right: 20%;
-    transform: translate(50%,-50%);
+.treasury .roll .scaleNumber span {
+  position: absolute;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-
-.scaleNumber span:nth-child(3){
-    top: 50%;
-    right: 0.5rem;
-    transform: translateY(-50%);
+.treasury .roll .scaleNumber span:nth-child(1) {
+  top: 0.5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
-
-.scaleNumber span:nth-child(4){
-    bottom: 25%;
-    right: 20%;
-    transform: translate(50%,50%);
+.treasury .roll .scaleNumber span:nth-child(2) {
+  top: 25%;
+  right: 20%;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
 }
-
-.scaleNumber span:nth-child(5){
-    bottom: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+.treasury .roll .scaleNumber span:nth-child(3) {
+  top: 50%;
+  right: 0.5rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
-
-.scaleNumber span:nth-child(6){
-    bottom: 25%;
-    left: 20%;
-    transform: translate(-50%,50%);
+.treasury .roll .scaleNumber span:nth-child(4) {
+  bottom: 25%;
+  right: 20%;
+  -webkit-transform: translate(50%, 50%);
+          transform: translate(50%, 50%);
 }
-
-.scaleNumber span:nth-child(7){
-    top: 50%;
-    left: 0.5rem;
-    transform: translateY(-50%);
+.treasury .roll .scaleNumber span:nth-child(5) {
+  bottom: 0.5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
-
-.scaleNumber span:nth-child(8){
-    top: 25%;
-    left: 20%;
-    transform: translate(-50%,-50%);
+.treasury .roll .scaleNumber span:nth-child(6) {
+  bottom: 25%;
+  left: 20%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
 }
-
-.rollMain{
-    background-color: rgb(66, 66, 66);
-    width: 100px;
-    height: 100px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    border-radius: 50%;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.16);
-    transition: transform 0.5s ease-out;
+.treasury .roll .scaleNumber span:nth-child(7) {
+  top: 50%;
+  left: 0.5rem;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
 }
-
-.rollMain::before{
-    content: "";
-    position: absolute;
-    top: 0.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 10px 17.3px 10px;
-    border-color: transparent transparent #ffffff transparent;
+.treasury .roll .scaleNumber span:nth-child(8) {
+  top: 25%;
+  left: 20%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
-
-.btnBox{
-    margin-bottom: 2rem;
-    user-select: none;
+.treasury .roll .rollMain {
+  background-color: rgb(66, 66, 66);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  border-radius: 50%;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 5px 5px rgba(0, 0, 0, 0.16);
+  -webkit-transition: -webkit-transform 0.5s ease-out;
+  transition: -webkit-transform 0.5s ease-out;
+  transition: transform 0.5s ease-out;
+  transition: transform 0.5s ease-out, -webkit-transform 0.5s ease-out;
 }
-
-.btnBox button{
-    background-color: rgb(66, 66, 66);
-    border: #fff 1px solid;
-    padding: 1rem 2rem;
-    border-radius: 1.5rem;
-    color: red;
-    font-size: 16px;
-    box-shadow: 0 10px 5px rgba(0,0,0,0.16);
-    margin: 0 1rem;
-    transition: color 0.3s ease-out, transform 0.3s ease-out;
+.treasury .roll .rollMain::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 10px 17.3px 10px;
+  border-color: transparent transparent #ffffff transparent;
 }
-
-.btnBox button:active{
-    color: rgb(66, 66, 66);
-    transform: scale(0.9);
+.treasury .btnBox {
+  margin-bottom: 2rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.treasury .btnBox button {
+  background-color: rgb(66, 66, 66);
+  border: #fff 1px solid;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  color: red;
+  font-size: 16px;
+  -webkit-box-shadow: 0 10px 5px rgba(0, 0, 0, 0.16);
+          box-shadow: 0 10px 5px rgba(0, 0, 0, 0.16);
+  margin: 0 1rem;
+  -webkit-transition: color 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: color 0.3s ease-out, -webkit-transform 0.3s ease-out;
+  transition: color 0.3s ease-out, transform 0.3s ease-out;
+  transition: color 0.3s ease-out, transform 0.3s ease-out, -webkit-transform 0.3s ease-out;
+}
+.treasury .btnBox button:active {
+  color: rgb(66, 66, 66);
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }

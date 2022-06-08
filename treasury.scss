@@ -1,0 +1,254 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+.stopEvent {
+    *{
+        pointer-events: none !important;
+        user-select: none !important;
+    }
+}
+
+.treasury{
+    background-color: rgb(103, 103, 103);
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 5px 3px 5px rgba(0,0,0,0.16);
+    position: relative;
+
+    .arrow{
+        position: absolute;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        top: 25%;
+
+        @mixin rollSet($name){
+            animation-name: $name;
+            animation-duration: 0.5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        
+        @keyframes roll_l{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(-360deg);
+            }
+        }
+
+        @keyframes roll_r{
+            from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        &.l{
+            left: 25%;
+            background: url(icon/arrow-rotate-left-solid.svg) no-repeat;
+
+            &:hover{
+                @include rollSet("roll_l")
+            }
+        }
+
+        &.r{
+            right: 25%;
+            background: url(icon/arrow-rotate-right-solid.svg) no-repeat;
+
+            &:hover{
+                @include rollSet("roll_r")
+            }
+        }
+    }
+
+    .math{
+        margin-top: 3rem;
+        font-size: 1.5rem;
+        width: 270px;
+        height: 2.5rem;
+        background-color: #fff;
+        border-radius: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        user-select: none;
+
+        &.setup{
+            color: mediumpurple;
+
+            span{
+                b{
+                    color: mediumpurple;
+                }
+            }
+        }
+
+        &.error{
+            color: red;
+            
+            span{
+                b{
+                    color: red;
+                }
+            }
+        }
+
+        &.clear{
+            color: green;
+
+            span{
+                b{
+                    color: green;
+                }
+            }
+        }
+
+        span:not(:last-child)::after{
+            content: "-";
+        }
+
+        b{
+            font-weight: normal;
+        
+            &.l{
+                color: orange;
+            }
+        
+            &.r{
+                color: blue;
+            }
+        }
+    }
+
+    .roll{
+        background-color: #fff;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        position: relative;
+    
+        .scaleNumber{
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            position: relative;
+
+            span{
+                position: absolute;
+                pointer-events: none;
+                user-select: none;
+
+                &:nth-child(1){
+                    top: 0.5rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                
+                &:nth-child(2){
+                    top: 25%;
+                    right: 20%;
+                    transform: translate(50%,-50%);
+                }
+                
+                &:nth-child(3){
+                    top: 50%;
+                    right: 0.5rem;
+                    transform: translateY(-50%);
+                }
+                
+                &:nth-child(4){
+                    bottom: 25%;
+                    right: 20%;
+                    transform: translate(50%,50%);
+                }
+                
+                &:nth-child(5){
+                    bottom: 0.5rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+                
+                &:nth-child(6){
+                    bottom: 25%;
+                    left: 20%;
+                    transform: translate(-50%,50%);
+                }
+                
+                &:nth-child(7){
+                    top: 50%;
+                    left: 0.5rem;
+                    transform: translateY(-50%);
+                }
+                
+                &:nth-child(8){
+                    top: 25%;
+                    left: 20%;
+                    transform: translate(-50%,-50%);
+                }
+            }
+        }
+
+        .rollMain{
+            background-color: rgb(66, 66, 66);
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50%;
+            box-shadow: 0 5px 5px rgba(0,0,0,0.16);
+            transition: transform 0.5s ease-out;
+        
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 0 10px 17.3px 10px;
+                border-color: transparent transparent #ffffff transparent;
+            }
+        }
+    }
+
+    .btnBox{
+        margin-bottom: 2rem;
+        user-select: none;
+    
+        button{
+            background-color: rgb(66, 66, 66);
+            border: #fff 1px solid;
+            padding: 1rem 2rem;
+            border-radius: 1.5rem;
+            color: red;
+            font-size: 16px;
+            box-shadow: 0 10px 5px rgba(0,0,0,0.16);
+            margin: 0 1rem;
+            transition: color 0.3s ease-out, transform 0.3s ease-out;
+    
+            &:active{
+                color: rgb(66, 66, 66);
+                transform: scale(0.9);
+            }
+        }
+    }
+}
+
+

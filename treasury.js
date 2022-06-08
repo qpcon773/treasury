@@ -12,7 +12,7 @@ const rollEvent = e =>{
         count == 0 ? count = 7 : count--
         place = "l"
     }else{
-        deg +=45
+        deg += 45
         count == 7 ? count = 0 : count ++
         place = "r"
     }
