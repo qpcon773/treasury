@@ -12,8 +12,6 @@
 開始進入解鎖環節
 
 <br>
-<br>
-<br>
 
 # 操作說明（依照介面由下至上說明）
 
@@ -43,7 +41,8 @@
   * 按下 "open" 並成功作用後會顯示不同狀態1秒後並回歸輸入密碼狀態
 
 <br>
-<br>
 
-連結：https://qpcon773.github.io/treasury/treasury.html
+# 連結
+### font awesome：https://fontawesome.com/
+### Treasury Game：https://qpcon773.github.io/treasury/treasury.html
 
